@@ -51,6 +51,55 @@ namespace WpfAppTest.Services
             File.WriteAllText(_dataFilePath, json);
         }
 
+        /// <summary>
+        /// Получение списка оборудований
+        /// </summary>
         public List<Equipment> GetAllEquipment() => _equipmentList;
+
+        /// <summary>
+        /// Получение конкретного оборудования по id
+        /// </summary>
+        public Equipment GetEquipmentById(int id) => _equipmentList.FirstOrDefault(e => e.Id == id);
+
+         /// <summary>
+         /// Добавление нового оборудования, айди для нового = максимальное айди+1
+         /// </summary>
+        public void AddEquipment(Equipment equipment)
+        {
+            equipment.Id = _equipmentList.Any() ? _equipmentList.Max(e => e.Id) + 1 : 1;
+            _equipmentList.Add(equipment);
+            SaveData();
+            InitializeData();
+        }
+
+        /// <summary>
+        /// Обновить существующее оборудование, находя его по айди
+        /// </summary>
+        public void UpdateEquipment(Equipment equipment)
+        {
+            var existing = _equipmentList.FirstOrDefault(e => e.Id == equipment.Id);
+            if (existing != null)
+            {
+                existing.Name = equipment.Name;
+                existing.Type = equipment.Type;
+                existing.Status = equipment.Status;
+                SaveData();
+                InitializeData();
+            }
+        }
+
+        /// <summary>
+        /// Удалить оборудование, находя его по айди
+        /// </summary>
+        public void DeleteEquipment(int id)
+        {
+            var equipment = _equipmentList.FirstOrDefault(e => e.Id == id);
+            if (equipment != null)
+            {
+                _equipmentList.Remove(equipment);
+                SaveData();
+                InitializeData();
+            }
+        }
     }
 }

@@ -4,8 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppTest"
+        xmlns:vm="clr-namespace:WpfAppTest.ViewModels"
+        xmlns:models="clr-namespace:WpfAppTest.Models"        
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"  WindowStartupLocation="CenterScreen" Top="0" Left="0"
         Title="Учет офисного оборудования" Height="800" Width="1400" MinHeight="800" MinWidth="1400" MaxHeight="800" MaxWidth="1400">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibility"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -15,16 +21,38 @@
 
         <TextBlock Text="Учет офисного оборудования" Grid.Row="0"/>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal"></StackPanel>
-        
-        <DataGrid x:Name="EquipmentList" Grid.Row="2" ItemsSource="{Binding EquipmentList}"
-                      AutoGenerateColumns="False" Width="auto" Height="auto" VerticalScrollBarVisibility="Hidden">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="auto"/>
-                <DataGridTextColumn Header="Название" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Тип" Binding="{Binding Type}" />
-                <DataGridTextColumn Header="Статус" Binding="{Binding Status}" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Content="Добавить" Command="{Binding AddEqCommand}" Width="150" Margin="0,0,10,0"/>
+            <Button Content="Редактировать" Command="{Binding EditEqCommand}" Width="200" Margin="0,0,10,0"/>
+            <Button Content="Удалить" Command="{Binding DeleteEqCommand}" Width="150"/>
+        </StackPanel>
+        <Grid Grid.Row="2" Margin="0,10,0,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid x:Name="EquipmentList" Grid.Column="0" ItemsSource="{Binding EquipmentList}" IsReadOnly="True" SelectionMode="Single"
+                      AutoGenerateColumns="False" Width="auto" Height="671" VerticalScrollBarVisibility="Hidden" SelectedItem="{Binding SelectedEquipment}" VerticalAlignment="Top">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="auto"/>
+                    <DataGridTextColumn Header="Название" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="Тип" Binding="{Binding Type}" />
+                    <DataGridTextColumn Header="Статус" Binding="{Binding Status}" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel x:Name="AddOrEditForm" Grid.Column="2" Visibility="{Binding IsEditMode, Converter={StaticResource BoolToVisibility}}">
+                <TextBlock Text="Добавление/редактирование"/>
+                <Label>Название оборудования</Label>
+                <TextBox x:Name="NameEq" Text="{Binding SelectedEquipment.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label>Тип</Label>
+                <ComboBox x:Name="TypeEq" ItemsSource="{Binding EquipmentTypes}" SelectedItem="{Binding SelectedEquipment.Type}"/>
+                <Label>Статус</Label>
+                <ComboBox x:Name="StatusEq" ItemsSource="{Binding EquipmentStatuses}" SelectedItem="{Binding SelectedEquipment.Status}"/>
+                <Button Content="Сохранить" Command="{Binding SaveEqCommand}" Width="150" Margin="10,10,5,10"/>
+                <Button Content="Отмена" Command="{Binding CancelEditCommand}" Width="100"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

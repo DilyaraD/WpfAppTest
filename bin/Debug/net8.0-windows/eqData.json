@@ -11,42 +11,42 @@
   },
   {
     "_id": 2,
-    "_name": "Epson Perfection",
+    "_name": "Epson Perfection 1",
     "_type": 1,
     "_status": 1,
     "Id": 2,
-    "Name": "Epson Perfection",
+    "Name": "Epson Perfection 1",
     "Type": 1,
     "Status": 1
   },
   {
     "_id": 3,
-    "_name": "Dell UltraSharp",
-    "_type": 2,
-    "_status": 2,
-    "Id": 3,
-    "Name": "Dell UltraSharp",
-    "Type": 2,
-    "Status": 2
-  },
-  {
-    "_id": 4,
-    "_name": "Dell UltraSharp",
+    "_name": "Philips",
     "_type": 2,
     "_status": 0,
-    "Id": 4,
-    "Name": "Dell UltraSharp",
+    "Id": 3,
+    "Name": "Philips",
     "Type": 2,
     "Status": 0
   },
   {
-    "_id": 5,
-    "_name": "Epson Perfection",
-    "_type": 1,
+    "_id": 4,
+    "_name": "22",
+    "_type": 0,
     "_status": 2,
-    "Id": 5,
-    "Name": "Epson Perfection",
-    "Type": 1,
+    "Id": 4,
+    "Name": "22",
+    "Type": 0,
     "Status": 2
+  },
+  {
+    "_id": 5,
+    "_name": "",
+    "_type": 0,
+    "_status": 0,
+    "Id": 5,
+    "Name": "",
+    "Type": 0,
+    "Status": 0
   }
 ]

@@ -23,3 +23,5 @@ D:\проекты\WpfAppTest\obj\Debug\net8.0-windows\WpfAppTest.genruntimeconfi
 D:\проекты\WpfAppTest\obj\Debug\net8.0-windows\ref\WpfAppTest.dll
 D:\проекты\WpfAppTest\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 D:\проекты\WpfAppTest\obj\Debug\net8.0-windows\App.baml
+D:\проекты\WpfAppTest\obj\Debug\net8.0-windows\WpfAppTest.sourcelink.json
+D:\проекты\WpfAppTest\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
