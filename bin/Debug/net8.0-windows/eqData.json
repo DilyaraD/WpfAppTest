@@ -1,0 +1,52 @@
+[
+  {
+    "_id": 1,
+    "_name": "HP LaserJet",
+    "_type": 0,
+    "_status": 0,
+    "Id": 1,
+    "Name": "HP LaserJet",
+    "Type": 0,
+    "Status": 0
+  },
+  {
+    "_id": 2,
+    "_name": "Epson Perfection",
+    "_type": 1,
+    "_status": 1,
+    "Id": 2,
+    "Name": "Epson Perfection",
+    "Type": 1,
+    "Status": 1
+  },
+  {
+    "_id": 3,
+    "_name": "Dell UltraSharp",
+    "_type": 2,
+    "_status": 2,
+    "Id": 3,
+    "Name": "Dell UltraSharp",
+    "Type": 2,
+    "Status": 2
+  },
+  {
+    "_id": 4,
+    "_name": "Dell UltraSharp",
+    "_type": 2,
+    "_status": 0,
+    "Id": 4,
+    "Name": "Dell UltraSharp",
+    "Type": 2,
+    "Status": 0
+  },
+  {
+    "_id": 5,
+    "_name": "Epson Perfection",
+    "_type": 1,
+    "_status": 2,
+    "Id": 5,
+    "Name": "Epson Perfection",
+    "Type": 1,
+    "Status": 2
+  }
+]
